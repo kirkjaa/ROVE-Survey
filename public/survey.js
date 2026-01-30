@@ -5,7 +5,33 @@ document.addEventListener('DOMContentLoaded', function() {
     initEmpathySurvey();
     initQuantitativeSurvey();
     initRankingDragDrop();
+    initCardSelection();
 });
+
+// ===== Card Selection (for energy/experience cards) =====
+function initCardSelection() {
+    // Add 'selected' class to card labels when their radio is checked
+    const cards = document.querySelectorAll('.energy-card, .experience-card');
+    
+    cards.forEach(card => {
+        const input = card.querySelector('input[type="radio"]');
+        if (input) {
+            // Handle click on the card
+            card.addEventListener('click', function() {
+                // Remove selected class from siblings
+                const siblings = card.parentElement.querySelectorAll('.energy-card, .experience-card');
+                siblings.forEach(sibling => sibling.classList.remove('selected'));
+                // Add selected class to this card
+                card.classList.add('selected');
+            });
+            
+            // Set initial state if already checked
+            if (input.checked) {
+                card.classList.add('selected');
+            }
+        }
+    });
+}
 
 // ===== Survey Selection =====
 function initSurveySelection() {

@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===== Authentication =====
 async function checkAuth() {
     try {
-        const response = await fetch('/api/auth/check');
+        const response = await fetch('/api/auth/check', {
+            credentials: 'same-origin'
+        });
         const data = await response.json();
         
         if (data.authenticated) {
@@ -50,6 +52,7 @@ function initLoginForm() {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
                 body: JSON.stringify({ username, password })
             });
             
@@ -74,7 +77,7 @@ function initLoginForm() {
 function initLogout() {
     document.getElementById('logout-btn').addEventListener('click', async function() {
         try {
-            await fetch('/api/auth/logout', { method: 'POST' });
+            await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
         } catch (error) {
             console.error('Logout error:', error);
         }
@@ -260,7 +263,9 @@ function initTabs() {
 // ===== Load Stats =====
 async function loadStats() {
     try {
-        const response = await fetch('/api/stats');
+        const response = await fetch('/api/stats', {
+            credentials: 'same-origin'
+        });
         const data = await response.json();
 
         document.getElementById('empathy-count').textContent = data.empathy;
@@ -283,7 +288,9 @@ async function loadEmpathyResponses() {
     const container = document.getElementById('empathy-list');
     
     try {
-        const response = await fetch('/api/survey/empathy');
+        const response = await fetch('/api/survey/empathy', {
+            credentials: 'same-origin'
+        });
         
         // Check if response is OK (status 200-299)
         if (!response.ok) {
@@ -335,7 +342,9 @@ async function loadQuantitativeResponses() {
     const container = document.getElementById('quant-list');
     
     try {
-        const response = await fetch('/api/survey/quantitative');
+        const response = await fetch('/api/survey/quantitative', {
+            credentials: 'same-origin'
+        });
         
         // Check if response is OK (status 200-299)
         if (!response.ok) {
@@ -466,7 +475,8 @@ async function deleteCurrentResponse() {
     if (confirm('Are you sure you want to delete this response?')) {
         try {
             await fetch(`/api/survey/${currentResponseType}/${currentResponseId}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                credentials: 'same-origin'
             });
             closeModal();
             loadStats();
@@ -535,7 +545,7 @@ async function clearData(type) {
 
     if (confirm(`Are you sure you want to delete all ${count} ${type} responses? This cannot be undone.`)) {
         try {
-            await fetch(`/api/survey/${type}`, { method: 'DELETE' });
+            await fetch(`/api/survey/${type}`, { method: 'DELETE', credentials: 'same-origin' });
             loadStats();
             loadResponses();
         } catch (error) {

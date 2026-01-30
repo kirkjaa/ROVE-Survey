@@ -513,6 +513,8 @@ html[lang="th"] body {
     flex-direction: column;
     text-align: center;
     padding: var(--spacing-md);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .energy-card .energy-icon {
@@ -528,6 +530,14 @@ html[lang="th"] body {
 .energy-card span:last-child {
     font-size: 0.85rem;
     color: var(--text-secondary);
+}
+
+/* Selected state for energy cards */
+.energy-card:has(input:checked),
+.energy-card.selected {
+    border-color: var(--coral);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(196, 77, 255, 0.15));
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
 }
 
 .energy-card input:checked ~ strong,
@@ -546,6 +556,8 @@ html[lang="th"] body {
     flex-direction: column;
     text-align: center;
     padding: var(--spacing-md);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .experience-card .exp-icon {
@@ -561,6 +573,19 @@ html[lang="th"] body {
 .experience-card span:last-child {
     font-size: 0.85rem;
     color: var(--text-secondary);
+}
+
+/* Selected state for experience cards */
+.experience-card:has(input:checked),
+.experience-card.selected {
+    border-color: var(--coral);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(196, 77, 255, 0.15));
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.experience-card input:checked ~ strong,
+.experience-card input:checked ~ span:last-child {
+    color: var(--text-primary);
 }
 
 /* ===== Icon Grid ===== */

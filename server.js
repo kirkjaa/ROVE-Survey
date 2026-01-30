@@ -33,7 +33,13 @@ if (!fs.existsSync(QUANT_FILE)) {
 }
 
 // ===== Middleware =====
-app.use(cors());
+// Trust proxy for reverse proxy setups (nginx, cloud providers)
+app.set('trust proxy', 1);
+
+app.use(cors({
+    origin: true,
+    credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,6 +50,7 @@ app.use(session({
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
+        sameSite: 'lax',
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
 }));
