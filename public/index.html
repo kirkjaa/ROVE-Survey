@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROVE Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="nav-bar">
+        <div class="logo">
+            <span class="logo-text">ROVE</span>
+            <span class="logo-tag">Survey</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Take Survey</a>
+            <a href="admin.html">Admin Panel</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Survey Selection -->
+        <section id="survey-selection" class="glass-card survey-selection">
+            <h1 class="hero-title">Choose Your Journey</h1>
+            <p class="hero-subtitle">Help us understand your travel vibe</p>
+            
+            <div class="survey-options">
+                <button class="survey-option-btn" data-survey="empathy">
+                    <div class="option-icon">💭</div>
+                    <h3>Empathy Questionnaire</h3>
+                    <p>Deep dive into your travel emotions, fears, and desires</p>
+                    <span class="time-estimate">~8 minutes</span>
+                </button>
+                
+                <button class="survey-option-btn" data-survey="quantitative">
+                    <div class="option-icon">📊</div>
+                    <h3>Quantitative Survey</h3>
+                    <p>Profile-based questions for personalized matching</p>
+                    <span class="time-estimate">~6 minutes</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Empathy Questionnaire -->
+        <section id="empathy-survey" class="survey-form hidden">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="empathy-progress"></div>
+                </div>
+                <span class="progress-text">Part <span id="empathy-part">1</span> of 6</span>
+            </div>
+
+            <form id="empathy-form">
+                <!-- Part 1: Discovery & The Inspiration Gap -->
+                <div class="form-part active" data-part="1">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 1</span>
+                            <h2>Discovery & The Inspiration Gap</h2>
+                            <p class="part-description">This section explores the friction between seeing a "vibe" and booking it.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">1</span>
+                                Where do you typically find travel inspiration?
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q1" value="tiktok">
+                                    <span class="checkbox-custom"></span>
+                                    <span>TikTok</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q1" value="instagram">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Instagram</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q1" value="blogs_youtube">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Travel Blogs / YouTube</span>
+                                </label>
+                                <label class="checkbox-item other-option">
+                                    <input type="checkbox" name="e_q1" value="other">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Other:</span>
+                                    <input type="text" name="e_q1_other" class="inline-input" placeholder="Specify...">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">2</span>
+                                When you find inspiration online, how do you feel when you cannot easily find a way to book exactly what you see?
+                            </label>
+                            <textarea name="e_q2" class="text-input" rows="4" placeholder="Share your feelings..."></textarea>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">3</span>
+                                What specific visual elements make a travel video feel "authentic" to you rather than a "tourist trap"?
+                            </label>
+                            <textarea name="e_q3" class="text-input" rows="4" placeholder="Describe what makes content feel real..."></textarea>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">4</span>
+                                How much time do you spend "verifying" a social media trend on sites like TripAdvisor before you feel safe booking?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q4" value="less_30min">
+                                    <span class="radio-custom"></span>
+                                    <span>Less than 30 minutes</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q4" value="1_2_hours">
+                                    <span class="radio-custom"></span>
+                                    <span>1–2 hours</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q4" value="3plus_hours">
+                                    <span class="radio-custom"></span>
+                                    <span>3+ hours / I need extensive peer proof</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Social Connection & "Tribe" Dynamics -->
+                <div class="form-part" data-part="2">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 2</span>
+                            <h2>Social Connection & "Tribe" Dynamics</h2>
+                            <p class="part-description">Identifying the "loneliness epidemic" and fears regarding group travel.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">5</span>
+                                Have you ever felt socially isolated while traveling, even if you were in a crowded place?
+                            </label>
+                            <div class="radio-group horizontal">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q5" value="yes">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q5" value="no">
+                                    <span class="radio-custom"></span>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">6</span>
+                                What are your top three fears when joining a group of strangers for a trip?
+                            </label>
+                            <div class="multi-input-group">
+                                <input type="text" name="e_q6_1" class="text-input" placeholder="Fear #1">
+                                <input type="text" name="e_q6_2" class="text-input" placeholder="Fear #2">
+                                <input type="text" name="e_q6_3" class="text-input" placeholder="Fear #3">
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">7</span>
+                                How much do you trust an algorithm to choose your travel companions versus choosing them yourself from a list of profiles?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q7" value="full_trust">
+                                    <span class="radio-custom"></span>
+                                    <span>I fully trust an algorithm based on my "vibe."</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q7" value="see_profiles">
+                                    <span class="radio-custom"></span>
+                                    <span>I want to see their profiles first before committing.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q7" value="known_people">
+                                    <span class="radio-custom"></span>
+                                    <span>I only want to travel with people I already know.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 3: "Life Swap" & Motivation -->
+                <div class="form-part" data-part="3">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 3</span>
+                            <h2>"Life Swap" & Motivation</h2>
+                            <p class="part-description">Understanding the desire for skill-based travel over traditional sightseeing.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">8</span>
+                                If you could "swap lives" with a local for one week, what specific skill would you want to learn?
+                            </label>
+                            <input type="text" name="e_q8" class="text-input" placeholder="e.g., Muay Thai, being a barista, pottery, etc.">
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">9</span>
+                                Does the opportunity to gain a tangible skill increase your interest in a destination more than its historical landmarks?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q9" value="yes_skills">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, I prioritize learning and daily local life.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q9" value="no_landmarks">
+                                    <span class="radio-custom"></span>
+                                    <span>No, I still prioritize famous landmarks.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">10</span>
+                                What does "cultural empathy" mean to you in the context of a vacation?
+                            </label>
+                            <textarea name="e_q10" class="text-input" rows="4" placeholder="Share your perspective..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 4: Aesthetics & UX -->
+                <div class="form-part" data-part="4">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 4</span>
+                            <h2>Aesthetics & UX (The ROVE "Vibe")</h2>
+                            <p class="part-description">Evaluating the "Gen Z Premium" design and TikTok-style interface.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">11</span>
+                                Does the "Sunset" gradient palette (Coral, Magenta, Purple) feel like an authentic representation of Asian travel to you?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q11" value="yes_vibrant">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, it feels vibrant and modern.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q11" value="no_artificial">
+                                    <span class="radio-custom"></span>
+                                    <span>No, it feels too "digital" or artificial.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">12</span>
+                                Does the "Glassmorphism" (frosted glass) effect help you focus, or does the screen feel too "busy"?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q12" value="helps_focus">
+                                    <span class="radio-custom"></span>
+                                    <span>Helps me focus; feels premium.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q12" value="cluttered">
+                                    <span class="radio-custom"></span>
+                                    <span>Feels cluttered/distracting.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">13</span>
+                                What visual cues make an app feel "too AI-generated" to you?
+                            </label>
+                            <textarea name="e_q13" class="text-input" rows="4" placeholder="Describe what feels artificial..."></textarea>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">14</span>
+                                Does the term "Tribe" feel inclusive, or would you prefer a different name for your travel group?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q14" value="like_tribe">
+                                    <span class="radio-custom"></span>
+                                    <span>I like "Tribe."</span>
+                                </label>
+                                <label class="radio-item other-option">
+                                    <input type="radio" name="e_q14" value="prefer_other">
+                                    <span class="radio-custom"></span>
+                                    <span>I would prefer:</span>
+                                    <input type="text" name="e_q14_other" class="inline-input" placeholder="Your suggestion...">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 5: Logistics, Safety, & Risk Tolerance -->
+                <div class="form-part" data-part="5">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 5</span>
+                            <h2>Logistics, Safety, & Risk Tolerance</h2>
+                            <p class="part-description">Gauging comfort with house-swapping and host transparency.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">15</span>
+                                How much does a host's personal profile and previous reviews influence your decision to book?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q15" value="essential">
+                                    <span class="radio-custom"></span>
+                                    <span>Essential; I won't book without it.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q15" value="important">
+                                    <span class="radio-custom"></span>
+                                    <span>Important, but not the deciding factor.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q15" value="not_important">
+                                    <span class="radio-custom"></span>
+                                    <span>Not very important.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">16</span>
+                                What specific data about a home would you need to see to feel safe participating in "Kindred Hosting" (house-swapping)?
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q16" value="bathrooms_beds">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Exact number of bathrooms/beds.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q16" value="amenities">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Specific amenities (Wi-Fi, kitchen).</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q16" value="safety_ratings">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Neighborhood safety ratings.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="e_q16" value="video_tour">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Verified video tour.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">17</span>
+                                Are you willing to be the "public face" of a brand by contributing video reviews in exchange for discounts?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q17" value="yes_share">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, I'm happy to share my experience.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="e_q17" value="no_private">
+                                    <span class="radio-custom"></span>
+                                    <span>No, I prefer to stay private.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 6: Feature Ranking -->
+                <div class="form-part" data-part="6">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 6</span>
+                            <h2>Feature Ranking (Evaluation)</h2>
+                            <p class="part-description">Rank these potential features from 1 (Most Valuable) to 4 (Least Valuable).</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">18</span>
+                                Drag to rank the features:
+                            </label>
+                            <div class="ranking-container" id="empathy-ranking">
+                                <div class="ranking-item" data-value="video_booking" draggable="true">
+                                    <span class="rank-number">1</span>
+                                    <div class="rank-content">
+                                        <strong>Video-to-Booking</strong>
+                                        <span>Booking exactly what I see in a feed.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="vibe_matching" draggable="true">
+                                    <span class="rank-number">2</span>
+                                    <div class="rank-content">
+                                        <strong>Vibe Matching</strong>
+                                        <span>Guaranteeing a cohort with identical energy levels.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="skill_immersion" draggable="true">
+                                    <span class="rank-number">3</span>
+                                    <div class="rank-content">
+                                        <strong>Skill Immersion</strong>
+                                        <span>Learning a profession/craft from a local host.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="kindred_hosting" draggable="true">
+                                    <span class="rank-number">4</span>
+                                    <div class="rank-content">
+                                        <strong>Kindred Hosting</strong>
+                                        <span>Authentic local stays through house-swapping.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary prev-btn" disabled>← Previous</button>
+                    <button type="button" class="btn btn-primary next-btn">Next →</button>
+                    <button type="submit" class="btn btn-submit submit-btn hidden">Submit Survey ✨</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Quantitative Survey -->
+        <section id="quantitative-survey" class="survey-form hidden">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quant-progress"></div>
+                </div>
+                <span class="progress-text">Part <span id="quant-part">1</span> of 8</span>
+            </div>
+
+            <form id="quantitative-form">
+                <!-- Part 1: Personal & Professional Profile -->
+                <div class="form-part active" data-part="1">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 1</span>
+                            <h2>Personal & Professional Profile</h2>
+                            <p class="part-description">This section identifies if you fit the primary Gen Z-first target market.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">1</span>
+                                What is your email address?
+                            </label>
+                            <input type="email" name="q_q1" class="text-input" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">2</span>
+                                Which age bracket do you fall into?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q2" value="under_18">
+                                    <span class="radio-custom"></span>
+                                    <span>Under 18</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q2" value="18_22">
+                                    <span class="radio-custom"></span>
+                                    <span>18 – 22</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q2" value="23_27">
+                                    <span class="radio-custom"></span>
+                                    <span>23 – 27</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q2" value="28_plus">
+                                    <span class="radio-custom"></span>
+                                    <span>28+</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">3</span>
+                                What is your current primary status?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q3" value="student">
+                                    <span class="radio-custom"></span>
+                                    <span>Student</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q3" value="gap_year">
+                                    <span class="radio-custom"></span>
+                                    <span>Gap-Year Traveler</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q3" value="professional_nomad">
+                                    <span class="radio-custom"></span>
+                                    <span>Young Professional / Digital Nomad</span>
+                                </label>
+                                <label class="radio-item other-option">
+                                    <input type="radio" name="q_q3" value="other">
+                                    <span class="radio-custom"></span>
+                                    <span>Other:</span>
+                                    <input type="text" name="q_q3_other" class="inline-input" placeholder="Specify...">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: "Vibe Profile" & Social Analytics -->
+                <div class="form-part" data-part="2">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 2</span>
+                            <h2>"Vibe Profile" & Social Analytics</h2>
+                            <p class="part-description">ROVE aims to solve the "Loneliness Epidemic" and "Travel Anxiety" through personality-based matching.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">4</span>
+                                Have you ever felt "Travel Anxiety" or loneliness when planning a solo trip?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q4" value="yes_frequently">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, frequently</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q4" value="sometimes">
+                                    <span class="radio-custom"></span>
+                                    <span>Sometimes</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q4" value="no_never">
+                                    <span class="radio-custom"></span>
+                                    <span>No, never</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">5</span>
+                                What are your biggest fears regarding group travel? (Check all that apply)
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q5" value="bad_company">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Being stuck with "bad company" or mismatched personalities.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q5" value="safety_concerns">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Safety concerns when traveling alone.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q5" value="tourist_trap">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Experiences feeling like a "tourist trap."</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q5" value="rigid_schedules">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Rigid schedules that don't allow for personal time.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">6</span>
+                                How would you rate your typical travel energy?
+                            </label>
+                            <div class="radio-group energy-cards">
+                                <label class="radio-item energy-card">
+                                    <input type="radio" name="q_q6" value="low_energy">
+                                    <span class="energy-icon">🧘</span>
+                                    <strong>Low Energy</strong>
+                                    <span>I prefer wellness, meditation, and quiet cafes.</span>
+                                </label>
+                                <label class="radio-item energy-card">
+                                    <input type="radio" name="q_q6" value="mid_energy">
+                                    <span class="energy-icon">☕</span>
+                                    <strong>Mid Energy</strong>
+                                    <span>I like a mix of coworking and exploring local food.</span>
+                                </label>
+                                <label class="radio-item energy-card">
+                                    <input type="radio" name="q_q6" value="high_energy">
+                                    <span class="energy-icon">🏄</span>
+                                    <strong>High Energy</strong>
+                                    <span>I prefer high-intensity pursuits (e.g., intensive sports or adventure).</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Discovery & Aesthetic Feedback -->
+                <div class="form-part" data-part="3">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 3</span>
+                            <h2>Discovery & Aesthetic Feedback</h2>
+                            <p class="part-description">This section validates the "Discovery-Booking Gap" and the convenience of the UI.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">7</span>
+                                Where do you find travel inspiration? (Check all that apply)
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q7" value="tiktok_instagram">
+                                    <span class="checkbox-custom"></span>
+                                    <span>TikTok / Instagram</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q7" value="google">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Google Search</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q7" value="friends">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Recommendations from friends</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q7" value="blogs_youtube">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Travel Blogs / YouTube</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">8</span>
+                                Do you find the "TikTok style" for your discovery page to be convenient?
+                            </label>
+                            <div class="radio-group horizontal">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q8" value="yes">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q8" value="no">
+                                    <span class="radio-custom"></span>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 4: Primary Travel Objective -->
+                <div class="form-part" data-part="4">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 4</span>
+                            <h2>Primary Travel Objective</h2>
+                            <p class="part-description">Refining the "Life Swap" model into specific professional and lifestyle goals.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">9</span>
+                                What is the main driver for your next week-long stay in a new city? (Select one)
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q9" value="skill_immersion">
+                                    <span class="radio-custom"></span>
+                                    <span><strong>Professional/Skill Immersion:</strong> Gaining hands-on experience in a specific craft (e.g., specialty coffee, sustainable farming).</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q9" value="remote_work">
+                                    <span class="radio-custom"></span>
+                                    <span><strong>Remote Work Evaluation:</strong> Testing a location's infrastructure for a long-term digital nomad lifestyle.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q9" value="niche_interest">
+                                    <span class="radio-custom"></span>
+                                    <span><strong>Intensive Niche Interest:</strong> Dedicated time for a wellness or high-energy pursuit (e.g., meditation or surf camps).</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q9" value="curated_community">
+                                    <span class="radio-custom"></span>
+                                    <span><strong>Curated Community:</strong> Being matched with a verified cohort who share my daily routine and energy.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">10</span>
+                                Which specific immersive experience would you be most likely to book?
+                            </label>
+                            <div class="radio-group experience-cards">
+                                <label class="radio-item experience-card">
+                                    <input type="radio" name="q_q10" value="vocational">
+                                    <span class="exp-icon">💼</span>
+                                    <strong>Vocational</strong>
+                                    <span>"Barista Training in Seoul" or "Digital Nomad Week in Bali."</span>
+                                </label>
+                                <label class="radio-item experience-card">
+                                    <input type="radio" name="q_q10" value="wellness">
+                                    <span class="exp-icon">🧘</span>
+                                    <strong>Wellness</strong>
+                                    <span>"Silent Meditation in Chiang Mai."</span>
+                                </label>
+                                <label class="radio-item experience-card">
+                                    <input type="radio" name="q_q10" value="adventure">
+                                    <span class="exp-icon">🏄</span>
+                                    <strong>Adventure</strong>
+                                    <span>"Surf & Skate Camp in Da Nang."</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 5: Host Transparency & Kindred Hosting -->
+                <div class="form-part" data-part="5">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 5</span>
+                            <h2>Host Transparency & Kindred Hosting</h2>
+                            <p class="part-description">Validating the level of data required to build trust in the ROVE marketplace.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">11</span>
+                                When looking at a host's profile, what information is a "must-have"? (Check all that apply)
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q11" value="rating">
+                                    <span class="checkbox-custom"></span>
+                                    <span>A hospitality/hostility rating from previous users.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q11" value="local_spots">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Their personal favorite local spots (gyms, restaurants, etc.).</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q11" value="video_intro">
+                                    <span class="checkbox-custom"></span>
+                                    <span>A video introduction of themselves.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q11" value="pets">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Information on pets.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">12</span>
+                                Regarding "Kindred Hosting" (house-swapping), what data do you need to see? (Check all that apply)
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q12" value="beds_baths">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Exact number of beds and bathrooms.</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q12" value="amenities">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Specific amenities (Wi-Fi speed, kitchen tools).</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="q_q12" value="safety_reviews">
+                                    <span class="checkbox-custom"></span>
+                                    <span>Verified safety reviews from the ROVE community.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 6: Local Integration & Language -->
+                <div class="form-part" data-part="6">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 6</span>
+                            <h2>Local Integration & Language</h2>
+                            <p class="part-description">Addressing your need for localized content and daily routine support.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">13</span>
+                                In your travel profile, which "consumer info" would you like to see integrated? (Check all that apply)
+                            </label>
+                            <div class="checkbox-group icon-grid">
+                                <label class="checkbox-item icon-item">
+                                    <input type="checkbox" name="q_q13" value="gyms">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="item-icon">🏋️</span>
+                                    <span>Local Gyms / Fitness Centers</span>
+                                </label>
+                                <label class="checkbox-item icon-item">
+                                    <input type="checkbox" name="q_q13" value="salons">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="item-icon">💅</span>
+                                    <span>Nail Salons / Grooming</span>
+                                </label>
+                                <label class="checkbox-item icon-item">
+                                    <input type="checkbox" name="q_q13" value="coffee_food">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="item-icon">☕</span>
+                                    <span>Specialty Coffee / Food spots</span>
+                                </label>
+                                <label class="checkbox-item icon-item">
+                                    <input type="checkbox" name="q_q13" value="coworking">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="item-icon">💻</span>
+                                    <span>Co-working spaces</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">14</span>
+                                If the app is localized for you (e.g., in Japanese), how important is it to remove all English terms?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q14" value="very_important">
+                                    <span class="radio-custom"></span>
+                                    <span>Very important; use existing local words.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q14" value="somewhat_important">
+                                    <span class="radio-custom"></span>
+                                    <span>Somewhat important; a mix is fine.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q14" value="not_important">
+                                    <span class="radio-custom"></span>
+                                    <span>Not important at all.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 7: Risk Tolerance & Commitment -->
+                <div class="form-part" data-part="7">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 7</span>
+                            <h2>Risk Tolerance & Commitment</h2>
+                            <p class="part-description">Understanding your willingness to invest in better experiences.</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">15</span>
+                                Would you be willing to pay a "Tribe Matching Fee" to guarantee you are placed in a group with similar energy levels?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q15" value="yes">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, if it ensures I don't have "bad company."</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q15" value="no">
+                                    <span class="radio-custom"></span>
+                                    <span>No, I would rather take the risk for free.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">16</span>
+                                Would you be interested in becoming a "Head Rover" (Campus Ambassador) to organize trips?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q16" value="yes">
+                                    <span class="radio-custom"></span>
+                                    <span>Yes, show me how to earn discounts.</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="q_q16" value="no">
+                                    <span class="radio-custom"></span>
+                                    <span>No, I just want to be a participant.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 8: Feature Prioritization -->
+                <div class="form-part" data-part="8">
+                    <div class="glass-card">
+                        <div class="part-header">
+                            <span class="part-number">Part 8</span>
+                            <h2>Feature Prioritization</h2>
+                            <p class="part-description">Rank the following ROVE app features by how much they would improve your travel experience (1 = Most important, 5 = Least important).</p>
+                        </div>
+
+                        <div class="question-group">
+                            <label class="question-label">
+                                <span class="q-number">17</span>
+                                Drag to rank the features:
+                            </label>
+                            <div class="ranking-container" id="quant-ranking">
+                                <div class="ranking-item" data-value="video_booking" draggable="true">
+                                    <span class="rank-number">1</span>
+                                    <div class="rank-content">
+                                        <strong>Video-to-Booking</strong>
+                                        <span>Booking directly from a TikTok-style feed.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="host_transparency" draggable="true">
+                                    <span class="rank-number">2</span>
+                                    <div class="rank-content">
+                                        <strong>Host Transparency</strong>
+                                        <span>Viewing profiles, ratings, and local favorite spots.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="kindred_hosting" draggable="true">
+                                    <span class="rank-number">3</span>
+                                    <div class="rank-content">
+                                        <strong>Kindred Hosting</strong>
+                                        <span>Accessing house-swapping details and neighborhood amenities.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="deep_profiling" draggable="true">
+                                    <span class="rank-number">4</span>
+                                    <div class="rank-content">
+                                        <strong>Deep Profiling</strong>
+                                        <span>An onboarding process for interests and surroundings.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                                <div class="ranking-item" data-value="multi_language" draggable="true">
+                                    <span class="rank-number">5</span>
+                                    <div class="rank-content">
+                                        <strong>Multi-Language Support</strong>
+                                        <span>Viewing the app in native languages like Japanese.</span>
+                                    </div>
+                                    <span class="drag-handle">⋮⋮</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary prev-btn" disabled>← Previous</button>
+                    <button type="button" class="btn btn-primary next-btn">Next →</button>
+                    <button type="submit" class="btn btn-submit submit-btn hidden">Submit Survey ✨</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Success Message -->
+        <section id="success-message" class="hidden">
+            <div class="glass-card success-card">
+                <div class="success-icon">🎉</div>
+                <h2>Thank You!</h2>
+                <p>Your responses have been recorded. You're helping shape the future of travel.</p>
+                <button class="btn btn-primary" onclick="location.reload()">Take Another Survey</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>ROVE Survey System · Built with ✨ for the future of travel</p>
+    </footer>
+
+    <script src="survey.js"></script>
+</body>
+</html>

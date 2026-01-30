@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  rove-survey:
+    build: .
+    container_name: rove-survey
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      # IMPORTANT: Change these credentials in production!
+      - ADMIN_USERNAME=roveadmin
+      - ADMIN_PASSWORD=RoveSecure2026!
+      - SESSION_SECRET=your-super-secret-session-key-change-this-in-production
+    volumes:
+      # Persist survey responses
+      - rove_data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - rove-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  rove_data:
+    driver: local
+
+networks:
+  rove-network:
+    driver: bridge
