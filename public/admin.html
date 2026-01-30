@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="admin-body">
     <div class="background-effects">
@@ -55,17 +55,29 @@
 
     <!-- Admin Dashboard -->
     <section id="admin-dashboard" class="hidden">
-        <nav class="nav-bar">
-            <div class="logo">
-                <span class="logo-text">ROVE</span>
-                <span class="logo-tag">Admin</span>
+<nav class="nav-bar">
+        <div class="logo">
+            <span class="logo-text">ROVE</span>
+            <span class="logo-tag">Admin</span>
+        </div>
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <span class="lang-flag">🇬🇧</span>
+                    <span data-i18n="lang_en">EN</span>
+                </button>
+                <button class="lang-btn" data-lang="th">
+                    <span class="lang-flag">🇹🇭</span>
+                    <span data-i18n="lang_th">TH</span>
+                </button>
             </div>
             <div class="nav-links">
-                <a href="index.html">Take Survey</a>
-                <a href="admin.html" class="active">Admin Panel</a>
-                <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+                <a href="index.html" data-i18n="nav_survey">Take Survey</a>
+                <a href="admin.html" class="active" data-i18n="nav_admin">Admin Panel</a>
+                <button class="btn btn-secondary btn-sm" id="logout-btn" data-i18n="admin_logout">Logout</button>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <main class="container admin-container">
             <header class="admin-header">
@@ -173,6 +185,7 @@
         </footer>
     </section>
 
+    <script src="i18n.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>
