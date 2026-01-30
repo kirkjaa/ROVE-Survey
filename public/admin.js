@@ -284,7 +284,19 @@ async function loadEmpathyResponses() {
     
     try {
         const response = await fetch('/api/survey/empathy');
+        
+        // Check if response is OK (status 200-299)
+        if (!response.ok) {
+            throw new Error(`Server returned ${response.status}`);
+        }
+        
         const responses = await response.json();
+        
+        // Ensure it's an array
+        if (!Array.isArray(responses)) {
+            throw new Error('Invalid response format');
+        }
+        
         responsesCache.empathy = responses;
 
         if (responses.length === 0) {
@@ -309,6 +321,7 @@ async function loadEmpathyResponses() {
             </div>
         `).join('');
     } catch (error) {
+        console.error('Load empathy responses error:', error);
         container.innerHTML = `
             <div class="empty-state">
                 <div class="empty-state-icon">⚠️</div>
@@ -323,7 +336,19 @@ async function loadQuantitativeResponses() {
     
     try {
         const response = await fetch('/api/survey/quantitative');
+        
+        // Check if response is OK (status 200-299)
+        if (!response.ok) {
+            throw new Error(`Server returned ${response.status}`);
+        }
+        
         const responses = await response.json();
+        
+        // Ensure it's an array
+        if (!Array.isArray(responses)) {
+            throw new Error('Invalid response format');
+        }
+        
         responsesCache.quantitative = responses;
 
         if (responses.length === 0) {
@@ -348,6 +373,7 @@ async function loadQuantitativeResponses() {
             </div>
         `).join('');
     } catch (error) {
+        console.error('Load quantitative responses error:', error);
         container.innerHTML = `
             <div class="empty-state">
                 <div class="empty-state-icon">⚠️</div>
